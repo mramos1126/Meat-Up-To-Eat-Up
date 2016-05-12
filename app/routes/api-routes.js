@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var Person 	= require("../model/character.js"); // Pulls out the Character Model
+var Person 	= require("../model/person.js"); // Pulls out the Character Model
 
 // Routes
 // =============================================================
