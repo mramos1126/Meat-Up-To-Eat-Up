@@ -1,0 +1,29 @@
+{
+  "name": "meetup_eatup",
+  "version": "1.0.0",
+  "description": "project 2",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mysql": "^2.10.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "sequelize": "^3.23.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mramos1126/Meat-Up-To-Eat-Up.git"
+  },
+  "author": "matt, steven m, mauricio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mramos1126/Meat-Up-To-Eat-Up/issues"
+  },
+  "homepage": "https://github.com/mramos1126/Meat-Up-To-Eat-Up#readme"
+}

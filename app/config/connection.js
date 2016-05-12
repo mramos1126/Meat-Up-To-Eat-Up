@@ -13,7 +13,7 @@ var source = {
         host: 'localhost',
         user: 'root',
         
-        database: "Meat2Meet"
+        database: "meetupEatup"
     },
 
    //  jawsDB: {
@@ -39,7 +39,7 @@ var sequelize = new Sequelize(selectedSource.database, selectedSource.user, sele
     min: 0,
     idle: 10000
   },
-
+  console.log('DATABASE: conneted via Sequalize.')
 });
 
 // Exports the connection for other files to use
