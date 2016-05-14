@@ -16,33 +16,40 @@ var sequelize = require("../config/connection.js");
 
 //sequeilize translates for other languages
 
-var Person = sequelize.define("foodMeet", {
+var Person = sequelize.define("Meet2Meat", {
 	id: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
 		primaryKey: true
 	},
-	first_Name: {
+	firstName: {
 		type: Sequelize.STRING,
 	},
-	last_Name: {
+	lastName: {
 		type: Sequelize.STRING,
 	},
+	userName: {
+		type: Sequelize.STRING,
+	},
+
 	age: {
-		type: Sequelize.STRING,
-	},
-	email: {
 		type: Sequelize.INTEGER,
+	},
+
+	
+	email: {
+		type: Sequelize.STRING,
 	},
 	gender: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 	},
-	food: {
-		type: Sequelize.INTEGER,
-	},
+	
 	location: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 	},
+food: {
+		type: Sequelize.STRING,
+	}
 });
 
 // Syncs with DB

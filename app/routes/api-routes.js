@@ -4,14 +4,14 @@
 
 // Dependencies
 // =============================================================
-var Person 	= require("../model/character.js"); // Pulls out the Character Model
+var Person 	= require("../model/info.js"); // Pulls out the Character Model
 
 // Routes
 // =============================================================
 module.exports = function(app){
 
 	// Search for Specific Character (or all characters) then provides JSON
-	app.get('/submit', function(req, res){
+	app.get('api/submit', function(req, res){
 
 		// If the user provides a specific character in the URL...
 		if(req.params.characters){
@@ -42,14 +42,14 @@ module.exports = function(app){
 	});
 
 //login aurthentication
-app.post('/login', 
+app.post('api/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
   });
 
 
-	app.post('/signup', function(req, res){
+	app.post('api/signup', function(req, res){
 
 		// Take the request...
 		var person = req.body;
@@ -59,8 +59,9 @@ app.post('/login',
 
 		// Then add the character to the database using sequelize
 		Person.create({
-			first_name: person.first_name,
-			last_name: person.last_name,
+			firstName: person.firstName,
+			lastName: person.lastName,
+			userName: person.userName,
 			age: person.age,
 			email: person.email,
 			gender:person.gender,
@@ -69,5 +70,4 @@ app.post('/login',
 		});
 		
 	})
-}
 }
