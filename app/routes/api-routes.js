@@ -49,7 +49,6 @@ module.exports = function(app){
 //   });
 
 	app.get('/api/:id?', function(req, res){
-
 		// If the user provides a specific character in the URL...
 		if(req.params.id){
 
@@ -57,7 +56,7 @@ module.exports = function(app){
 			// (Note how we're using the ORM here to run our searches)
 			Person.findAll({
 				where: {
-					id: 	req.params.id,
+					id: req.params.id,
 				}
 			}).then(function(result){
 				res.json(result);
@@ -68,13 +67,13 @@ module.exports = function(app){
 		else{
 			// Otherwise display the data for all of the characters. 
 			// (Note how we're using Sequelize here to run our searches)
-				Person.findAll({
+			Person.findAll({
 
-				})
-					.then(function(result){
-						res.json(result);
-				})
-			};
+			})
+				.then(function(result){
+					res.json(result);
+			})
+		};
 
 	});
 
@@ -84,22 +83,17 @@ module.exports = function(app){
 		// Take the request...
 		var person = req.body;
 
-		// Create a routeName 
-		//var routeName = person.name.replace(/\s+/g, '').toLowerCase();
-
-		// Then add the character to the database using sequelize
 		Person.create({
-			firstName: person.firstName,
-			lastName: person.lastName,
-			age: person.age,
-			email : person.email,	
-			userName : person.userName,
-			passWord : person.passWord,
-			food : person.food,
-			location : person.location,
-			photo : person.photo,
-			gender : person.gender,
-			genderPref : person.genderPref
+			lastName: 	person.lastName,
+			age: 		person.age,
+			email: 		person.email,	
+			userName: 	person.userName,
+			passWord: 	person.passWord,
+			food: 		person.food,
+			location: 	person.location,
+			photo: 		person.photo,
+			gender: 	person.gender,
+			genderPref: person.genderPref
 		});
 	})
 
@@ -107,6 +101,8 @@ module.exports = function(app){
  
 		// Take the request...
 		var matchCriteria = req.body;
+
+		console.log(matchCriteria);
 
 		res.json(matchCriteria);
 	})

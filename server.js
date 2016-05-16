@@ -3,7 +3,7 @@ var express 		= require('express');
 var bodyParser 		= require('body-parser');
 var path 			= require('path'); //decodes and breaksup url 
 // var exphbs = require('express-handlebars');//handlebars
-var methodOverride = require('method-override');
+var methodOverride 	= require('method-override');
 
 var app = express(); // Tells node that we are creating an "express" server
 var PORT = process.env.PORT||7001;

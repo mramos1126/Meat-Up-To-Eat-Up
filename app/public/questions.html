@@ -56,21 +56,23 @@
 		$(document).ready(function(){
 			$("#matchMe").click(function(){
 				var matchIt = {
-					location: 	$("#loc").val().trim(),
-					food: 		$("#food").val().trim()
+					newLocation: 	$("#loc").val().trim(),
+					newFood: 		$("#food").val().trim()
 				}
 
 				console.log(matchIt);
 
-				$.post( currentURL + '/api/matches', matchIt)
+				var currentURL = window.location.origin;
+
+				$.post(currentURL + '/api/matches', matchIt)
 					.done(function(data){
 						console.log(data);
-						alert('Updating preferences, ...');
+						alert('Updating preferences to ' + data.newFood + ' in ' + data.newLocation);
 
 				});
 
-				$("#loc").val().trim(),
-				$("#food").val().trim(),
+				$("#loc").val('');
+				$("#food").val('');
 
 				return false;
 
