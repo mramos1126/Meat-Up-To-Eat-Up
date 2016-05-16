@@ -67,9 +67,7 @@ module.exports = function(app){
 		else{
 			// Otherwise display the data for all of the characters. 
 			// (Note how we're using Sequelize here to run our searches)
-			Person.findAll({
-
-			})
+			Person.findAll({})
 				.then(function(result){
 					res.json(result);
 			})
