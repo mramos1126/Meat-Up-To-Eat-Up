@@ -60,10 +60,6 @@ var Person = sequelize.define("tester", {
 
 	genderPref: {
 		type: Sequelize.STRING,
-	},
-
-	bio: {
-		type: Sequelize.STRING,
 	}
 });
 

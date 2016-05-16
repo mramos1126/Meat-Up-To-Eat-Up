@@ -48,6 +48,36 @@ module.exports = function(app){
 //     res.redirect('/');
 //   });
 
+	app.get('/api/:id?', function(req, res){
+
+		// If the user provides a specific character in the URL...
+		if(req.params.id){
+
+			// Then display the JSON for ONLY that character.
+			// (Note how we're using the ORM here to run our searches)
+			Person.findAll({
+				where: {
+					id: 	req.params.id,
+				}
+			}).then(function(result){
+				res.json(result);
+			})
+		}
+
+		// Otherwise...
+		else{
+			// Otherwise display the data for all of the characters. 
+			// (Note how we're using Sequelize here to run our searches)
+				Person.findAll({
+
+				})
+					.then(function(result){
+						res.json(result);
+				})
+			};
+
+	});
+
 
 	app.post('/api/signup', function(req, res){
 
@@ -61,16 +91,23 @@ module.exports = function(app){
 		Person.create({
 			firstName: person.firstName,
 			lastName: person.lastName,
-	age: person.age,
-		email : person.email,	
-		userName : person.userName,
-		passWord : person.passWord,
-		food : person.food,
-		location : person.location,
-		photo : person.photo,
-		gender : person.gender,
-		genderPref : person.genderPref
+			age: person.age,
+			email : person.email,	
+			userName : person.userName,
+			passWord : person.passWord,
+			food : person.food,
+			location : person.location,
+			photo : person.photo,
+			gender : person.gender,
+			genderPref : person.genderPref
 		});
-		
+	})
+
+	app.post('/api/matches', function(req, res){
+ 
+		// Take the request...
+		var matchCriteria = req.body;
+
+		res.json(matchCriteria);
 	})
 }
